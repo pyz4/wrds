@@ -9,3 +9,5 @@ dist/
 wrds.egg-info/
 *.log
 .eggs/
+.venv*
+

@@ -29,4 +29,7 @@ __version__ = '3.0.8'
 __author__ = 'Wharton Research Data Services'
 __copyright__ = '2017-2019 Wharton Research Data Services'
 
+import os
+
 from .sql import Connection
+

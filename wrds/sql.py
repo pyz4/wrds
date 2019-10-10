@@ -444,7 +444,7 @@ class Connection(object):
             print("There was a problem with retrieving the schema")
             return None
 
-    def raw_sql(self, sql, coerce_float=True, date_cols=None, index_col=None, params=None):
+    def raw_sql(self, sql, *args, **kwargs):
         """
             Queries the database using a raw SQL string.
 
@@ -493,13 +493,7 @@ class Connection(object):
                 2003-09-10  09:35:20.709000  N       AA       None     None  108100.0  28.200          N      00  1.929947e+15         C  None
         """
         try:
-            return pd.read_sql_query(
-                sql,
-                self.connection,
-                coerce_float=coerce_float,
-                parse_dates=date_cols,
-                index_col=index_col,
-                params=params)
+            return pd.read_sql_query(sql, self.connection, *args, **kwargs)
         except sa.exc.ProgrammingError as e:
             raise e
 
